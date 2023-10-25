@@ -1,0 +1,41 @@
+def parseVote(s):
+    s = s.strip()
+    if (s == "" or s == " "):
+        print("0")
+    elif (not s.isdigit()):
+        print("-1")
+    else:
+        print(s)
+
+
+def parsePaper(s,n):
+    s = s.strip().split(',')
+    output=[]
+    for x in s:
+        m = parseVote(x)
+        output.append(m)
+    print (output)
+
+
+parsePaper(" a,14 , ", 4)
+
+#Output is 
+#-1
+#14
+#0
+#[None, None, None]
+
+#Output needs to be ([14, 0, 2], "")
+
+
+#def parsePaper(s, n): 
+#parsePaper(s, n) returns the votes from the ballot paper s in an election with n candidates, 
+#plus an error message if appropriate. If s is formal, return the list of numbers found in s and the empty string; 
+#	if s is informal, return an empty list of numbers and the appropriate string below. 
+#For example:
+#parsePaper("14, , 2", 4) = ([14, 0, 2], ""),
+#parsePaper(", , ", 4) = parsePaper("0, 0", 4) = ([ ], "blank"),
+#parsePaper("4, -8, 0", 4) = parsePaper("4, 7.8, 0", 4) = parsePaper("pointless, 5, 5", 4) = ([ ], "non-digits"),
+#parsePaper("1,2,,4,5", 4) = ([ ], "too long"). 
+
+#parsePaper will use parseVote.
